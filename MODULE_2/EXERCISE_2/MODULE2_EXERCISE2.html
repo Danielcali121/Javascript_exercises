@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>participants</title>
+</head>
+<body>
+<h1>This list of mine:</h1>
+<ol id="participants"></ol>
+<script>'use strict'
+let num_of_part = Number(prompt('how many participants?:   '));
+let partic = [];
+for(let i =1; i<= num_of_part ; i +=1){
+    let name = prompt('name of participant?:  ');
+    partic.push(name);
+}
+let n = partic.sort()
+document.getElementById("participants").innerHTML= n.map(item=>`<li>${item}</li>`).join("");
+</script>
+
+
+
+
+</body>
+</html>
