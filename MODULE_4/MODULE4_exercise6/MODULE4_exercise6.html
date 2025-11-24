@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuck Norris Jokes Search</title>
+</head>
+<body>
+
+    <form action="https://api.chucknorris.io/jokes/search">
+      <input id="query" name="q" type="text" placeholder="Enter a search term">
+      <input type="submit" value="Search">
+    </form>
+
+    <hr>
+
+    <h2>Search Results:</h2>
+    <div id="results-container">
+        </div>
+
+
+    <script>
+        'use strict';
+
+        const form = document.querySelector('form');
+        const resultsContainer = document.getElementById('results-container');
+
+        form.addEventListener("submit", async(event) => {
+          event.preventDefault();
+
+
+          const value = document.getElementById('query').value;
+
+
+          const baseurl = form.action;
+          const url = baseurl + `?query=${value}`;
+
+
+          resultsContainer.innerHTML = '';
+
+          try {
+            const response = await fetch(url);
+
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+
+            const jsonResponse = await response.json();
+
+
+            const jokesArray = jsonResponse.result;
+
+            if (jokesArray.length === 0) {
+                resultsContainer.innerHTML = '<p>No jokes found for that term.</p>';
+                return;
+            }
+
+
+            jokesArray.forEach(joke => {
+
+                const article = document.createElement('article');
+
+
+                const p = document.createElement('p');
+
+
+                p.textContent = joke.value;
+
+                article.appendChild(p);
+
+
+                resultsContainer.appendChild(article);
+
+
+                resultsContainer.appendChild(document.createElement('hr'));
+            });
+
+
+          } catch(error) {
+            console.error('Fetch failed:', error);
+            resultsContainer.innerHTML = `<p>Error fetching data: ${error.message}</p>`;
+
+          }
+
+        });
+    </script>
+
+</body>
+</html>
