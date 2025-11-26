@@ -1,0 +1,5 @@
+let a = prompt("give me a year  ");
+let b = parseInt(a);
+if (b%4===0){document.getElementById("message").innerHTML =  ` ${b} is a leap year`;};
+if (b%100===0 && b%400===0){document.getElementById("message").innerHTML =  ` ${b} is a leap year`;};
+if (b%4!==0 || b%100!==0 && b%400!==0){document.getElementById("message").innerHTML =  ` ${b} is not a leap year`;};

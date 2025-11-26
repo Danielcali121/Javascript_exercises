@@ -1,0 +1,10 @@
+ let a = prompt("what is the name:  ");
+let b = Math.floor(Math.random()*4)+1;
+let c = "Gryffindor";
+let d = "Slytherin";
+let e = "Hufflepuff";
+let f = "Ravenclaw";
+if (b===1){document.getElementById("message").innerHTML =`${a} is part of the  ${c}`;};
+if (b===2){document.getElementById("message").innerHTML =`${a} is part of the  ${d}`;};
+if (b===3){document.getElementById("message").innerHTML =`${a} is part of the  ${e}`;};
+if (b===4){document.getElementById("message").innerHTML =`${a} is part of the  ${f}`;};

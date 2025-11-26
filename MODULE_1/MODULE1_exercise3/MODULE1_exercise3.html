@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<p id="message"></p>
+
+  <script>
+    let a = prompt("what is the first number:  ");
+let b = prompt("what is the second number:  ");
+let c = prompt("what is the third number:  ");
+let sum = parseInt(a) + parseInt(b) + parseInt(c);
+let product = parseInt(a)*parseInt(b)*parseInt(c);
+let ave = sum/3;
+let result = `sum is ${sum}, product is ${product}, average is ${ave}`;
+
+    document.getElementById("message").innerHTML = result;
+  </script>
+</body>
+</html>
